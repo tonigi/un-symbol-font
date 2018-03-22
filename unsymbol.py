@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import sys
 import pandas as pd
-
+import codecs
 
 sl=pd.read_table("SYMBOL.TXT",comment="#",header=None)
 
@@ -11,8 +11,13 @@ def convert_symbol_tag(t):
     so = ""
     for s in tc:
         sh = f'0x{s:X}'
-        uh = sl[sl[0]==sh][1].iloc[0] # 0xAAAA
-        uhr = uh.replace("0x","&#x")
+        try:
+            uh = sl[sl[0]==sh][1].iloc[0] # 0xAAAA
+        except:
+            print(f"Weirdness Replacing {tc}")
+            continue
+        uhr = uh.replace("0x","")
+        uhr = codecs.decode(uhr,"hex").decode("utf-16-be")
         so += uhr
     t.attrs.pop("face",None)
     t.attrs.pop("FACE",None)
