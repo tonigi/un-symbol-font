@@ -53,3 +53,9 @@ You should get this
 ```
 
 That's it.
+
+See also
+--------
+
+A different approach, [found here](https://everything2.com/title/Make+pages+using+the+Symbol+font+display+correctly+in+Mozilla%252FFirefox), uses a bookmarklet to replace characters in the browser's DOM.  
+
