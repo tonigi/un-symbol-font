@@ -3,7 +3,8 @@ HTML Symbol font to Unicode Translator
 
 Two quick and dirty solutions which (partially) translate HTML pages using the
 obsolete `<font face=symbol>a</font>` notation into the corresponding
-Unicode entities.
+Unicode entities. For details see [here](https://en.wikipedia.org/wiki/Symbol_(typeface)).
+
 
 
 Solution 1. HTML translator
@@ -13,7 +14,6 @@ For the script to work you need to download the
 [SYMBOL.TXT](http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/SYMBOL.TXT)
 mapping file. (Python does not seem to have the corrsponding codec encoding table).
 
-For explanation see [here](https://en.wikipedia.org/wiki/Symbol_(typeface)).
 
 
 Usage
