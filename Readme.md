@@ -62,9 +62,9 @@ That's it.
 Solution 2. Bookmarklet
 =======================
 
-A different approach, [found here](https://everything2.com/title/Make+pages+using+the+Symbol+font+display+correctly+in+Mozilla%252FFirefox), uses a bookmarklet to replace characters in the browser's DOM.  The code provided in this repo (unlike the one linked above) builds the full replacement table, again based on the SYMBOL.TXT table.
+A different approach, [found here](https://everything2.com/title/Make+pages+using+the+Symbol+font+display+correctly+in+Mozilla%252FFirefox), uses a bookmarklet to replace characters in the browser's DOM.   To make it work, create a bookmark with the provided JS code.
 
-To make it work, create a bookmark with the provided JS code The JS code can be regenerated with the provided script.
+The JS code can be regenerated with the provided script. The code provided in this repo (unlike the one linked above) includes the full replacement table, again based on the SYMBOL.TXT table. 
 
 
 
