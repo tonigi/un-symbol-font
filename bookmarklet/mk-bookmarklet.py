@@ -1,7 +1,6 @@
-from bs4 import BeautifulSoup
 import sys
 import pandas as pd
-import codecs
+
 
 sl=pd.read_table("SYMBOL.TXT",comment="#",header=None)
 sl.columns=["hSymbol","hUnicode","Unk"]
