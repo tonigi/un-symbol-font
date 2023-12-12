@@ -1,17 +1,15 @@
 import sys
 import pandas as pd
+import numpy as np
 
+# s2x=lambda s: int(s,16)
 
-sl=pd.read_table("SYMBOL.TXT",comment="#",header=None)
-sl.columns=["hSymbol","hUnicode","Unk"]
-sl["Symbol"]=sl["hSymbol"].map(eval)
-sl["Unicode"]=sl["hUnicode"].map(eval)
-
-the_table = np.zeros(256, dtype=int)
-for i, d in sl.iterrows():
-    the_table[d["Symbol"]]=d["Unicode"]
-
-the_table_as_string=",".join(map(str,the_table))
+def s2x(s):
+    try:
+        r=int(s,16)
+    except:
+        r=0
+    return r
 
 bookmarklet="""
 javascript:var view = document.defaultView;
@@ -29,5 +27,21 @@ null) { convNode(n1); n1 = n1.nextSibling; } }
 convNode(document); 
 """
 
-print(bookmarklet.replace("THE_TABLE",the_table_as_string))
+if __name__=="__main__":
+    tbl = "SYMBOL.txt"
+    if len(sys.argv)==2:
+        tbl = sys.argv[1]
+
+    sl=pd.read_table(tbl,comment="#",header=None)
+    sl.columns=["hSymbol","hUnicode","Unk"]
+    sl["Symbol"]=sl["hSymbol"].map(s2x)
+    sl["Unicode"]=sl["hUnicode"].map(s2x)
+
+    the_table = np.zeros(256, dtype=int)
+    for i, d in sl.iterrows():
+        the_table[d["Symbol"]]=d["Unicode"]
+
+    the_table_as_string=",".join(map(str,the_table))
+
+    print(bookmarklet.replace("THE_TABLE",the_table_as_string))
 
