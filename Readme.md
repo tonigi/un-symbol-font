@@ -66,5 +66,7 @@ A different approach, [found here](https://everything2.com/title/Make+pages+usin
 
 The JS code can be regenerated with the provided script. The code provided in this repo (unlike the one linked above) includes the full replacement table, again based on the SYMBOL.TXT table. 
 
+An alternative version, based on the newer [Adobe table](https://unicode.org/Public/MAPPINGS/VENDORS/ADOBE/symbol.txt), is also provided.
+
 
 

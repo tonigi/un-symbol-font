@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 import numpy as np
+import argparse
 
 # s2x=lambda s: int(s,16)
 
@@ -28,12 +29,18 @@ convNode(document);
 """
 
 if __name__=="__main__":
-    tbl = "SYMBOL.txt"
-    if len(sys.argv)==2:
-        tbl = sys.argv[1]
 
-    sl=pd.read_table(tbl,comment="#",header=None)
-    sl.columns=["hSymbol","hUnicode","Unk"]
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--table', default="SYMBOL.txt")
+    parser.add_argument('--reverse',  action=argparse.BooleanOptionalAction)
+    args = parser.parse_args()
+
+    sl=pd.read_table(args.table,comment="#",header=None)
+    if not args.reverse:
+        sl.columns=["hSymbol","hUnicode","Unk"]
+    else:
+        sl.columns=["hUnicode","hSymbol","Unk"]
+
     sl["Symbol"]=sl["hSymbol"].map(s2x)
     sl["Unicode"]=sl["hUnicode"].map(s2x)
 
